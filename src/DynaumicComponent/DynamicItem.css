@@ -1,0 +1,15 @@
+.app
+{
+    padding: 20px;
+}
+
+.item-list
+{
+margin-top: 20px;
+}
+
+.dynamic-item{
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px 0;
+}

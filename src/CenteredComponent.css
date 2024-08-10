@@ -1,0 +1,11 @@
+.centered-container{
+ display: flex;
+ justify-content: flex-start;
+ align-items: safe;
+ height: 50vh;
+ width: 50vw;
+}
+
+.centered-content{
+    text-align: center;
+}

@@ -1,0 +1,25 @@
+.HashMapHeader
+{
+    background-color: #0f44a1;
+    min-height: 10vh;
+    min-width: 99%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: top;
+    font-size: large;
+    position: absolute;
+    top: 17%;
+    left: 2px;
+    margin-top: calc((0.5*30vh)*-1);   /* Half of the height */
+    border: 1pt solid rgb(192, 184, 184);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    height: 2%;
+    width: 17%;
+}
+
+.menuItemAddButton
+{
+    width: 70px;
+}
