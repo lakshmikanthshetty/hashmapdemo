@@ -1,13 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
-import './CenteredComponent.css';
+import logo from '../logo.svg';
+import '../App.css';
+import '../CenteredComponent.css';
 import KeyValue from './KeyValue.js'
-import './nesteddiv/nesteddiv.css'
-import Header from './reactUIV1/Header';
-import HashMapHeader from './HashMapHeader/HashMapHeader.js';
+import '../nesteddiv/nesteddiv.css'
+import Header from '../reactUIV1/Header.js';
+import HashMapHeader from '../HashMapHeader/HashMapHeader.js';
 import { useEffect, useState } from 'react';
 import './KeyValue.css'
-import keyvaluedata from './Data/KeyValuePair.json'
+import keyvaluedata from '../Data/KeyValuePair.json'
 
 function Hashmap() {
 

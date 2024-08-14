@@ -1,5 +1,4 @@
 import React, { useState} from "react";
-import './App.css'
 import './KeyValue.css'
 
 function KeyValue({offset, keydata, value}) {

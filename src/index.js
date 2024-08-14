@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Hashmap from './Hashmap';
+import Hashmap from './Hashmap/Hashmap';
 import reportWebVitals from './reportWebVitals';
 import MFRA from './MFRA'
 import ComponentReplica from './ComponentReplica/ComponentReplica'
