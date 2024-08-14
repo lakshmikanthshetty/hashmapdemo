@@ -9,6 +9,7 @@ import NestedDiv from './nesteddiv/nesteddiv';
 //import ParentComponent from './LiftingStateUp/ParentComponent'
 import DynaumicComponentContainer from './DynamicComponent/DynamicComponent';
 import ParentComponent from './ParentComponent/ParentComponent';
+import JsonRenderComp from './JSONComponentRender/JsonRenderComp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

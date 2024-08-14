@@ -5,19 +5,23 @@ import KeyValue from './KeyValue.js'
 import './nesteddiv/nesteddiv.css'
 import Header from './reactUIV1/Header';
 import HashMapHeader from './HashMapHeader/HashMapHeader.js';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './KeyValue.css'
+import keyvaluedata from './Data/KeyValuePair.json'
 
 function Hashmap() {
+
+  const [KeyValuesState, setKeyValues] = useState([])
 
   const [Items, setItems] = useState([]);
 
   const AddKeyValuePair = () => {
     console.log(Items);
+    console.log(KeyValuesState);
     setItems(prevItems => [...prevItems, prevItems.length + 1]);
   };
 
-  const keyvaluepair = <KeyValue />;
+  useEffect(() => { setKeyValues(keyvaluedata) }, []);
 
   return (
     <div>
@@ -32,8 +36,8 @@ function Hashmap() {
         KeyValuepair
             </td></tr>
 </table>
-        {Items.map((Item, Index) => (
-          <KeyValue/>
+{KeyValuesState.map((Item, Index) => (
+          <KeyValue offset={Item.offset} keydata={Item.keydata} value={Item.value}/>
         ))}
     
     
@@ -49,8 +53,8 @@ function Hashmap() {
         Offset
             </td></tr>
 </table>
-        {Items.map((Item, Index) => (
-          <KeyValue/>
+    {KeyValuesState.map((Item) => (
+          <KeyValue offset={Item.offset} keydata={Item.keydata} value={Item.value}/>
         ))}
     
     
