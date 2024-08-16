@@ -8,6 +8,7 @@ import HashMapHeader from '../HashMapHeader/HashMapHeader.js';
 import { useEffect, useState } from 'react';
 import './KeyValue.css'
 import keyvaluedata from '../Data/KeyValuePair.json'
+import keyvaluedataV1 from '../Data/KeyValuePairV1.json'
 import '../Animation/CSSAnimation/CSSAnimation.css'
 
 function Hashmap() {
@@ -17,12 +18,10 @@ function Hashmap() {
   
   const [showItems, setShowItems] = useState(false);
 
-  const AddKeyValuePair = () => {
+  const dataStateRender = (keyvaluedataindex) => {
     setShowItems(true);
 
     let timer;
-
-
 
     const hashIndexUpdate = (item) => {
 
@@ -40,7 +39,7 @@ function Hashmap() {
     };
 
     const renderDelayKeyValue = () => {
-      keyvaluedata.forEach((item, index) => {
+      keyvaluedataindex.forEach((item, index) => {
         timer = setTimeout(() => {
           setDelayKeyValue((prevItems) => [...prevItems, item]);
           hashIndexUpdate({"keydata" : item.keydata, "offset" : item.offset});
@@ -56,9 +55,17 @@ function Hashmap() {
     };
   };
 
+  const AddKeyValuePair = () => {
+    dataStateRender(keyvaluedata);
+  };
+
+  const UpdateKeyValuePair = () => {
+    dataStateRender(keyvaluedataV1);
+  };
+
   return (
     <div>
-      <HashMapHeader AddKeyValuePair={AddKeyValuePair}/>
+      <HashMapHeader AddKeyValuePair={AddKeyValuePair} UpdateKeyValuePair={UpdateKeyValuePair}/>
     <div class="keyvaluepairdiv">
     <table className="keyvaluediv">
           <tr className="keyvaluetr">
