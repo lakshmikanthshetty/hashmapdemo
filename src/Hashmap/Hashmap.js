@@ -12,24 +12,42 @@ import '../Animation/CSSAnimation/CSSAnimation.css'
 
 function Hashmap() {
 
-  const [KeyValuesState, setKeyValues] = useState([])
   const [delayKeyValueState, setDelayKeyValue] = useState([])
+  const [hashIndexState, updateHashIndex] = useState([])
   
   const [showItems, setShowItems] = useState(false);
 
   const AddKeyValuePair = () => {
     setShowItems(true);
 
-    setKeyValues(keyvaluedata);
     let timer;
+
+
+
+    const hashIndexUpdate = (item) => {
+
+      console.log(hashIndexState);
+      if(hashIndexState.length == 0)
+      {
+        updateHashIndex((prevIndex) => [...prevIndex, item])
+      }
+      else
+      {
+        updateHashIndex(hashIndexState.map(indexItem => 
+          indexItem.keydata === item.keydata?{...indexItem,...item}:indexItem
+        ));
+      }
+    };
 
     const renderDelayKeyValue = () => {
       keyvaluedata.forEach((item, index) => {
         timer = setTimeout(() => {
           setDelayKeyValue((prevItems) => [...prevItems, item]);
+          hashIndexUpdate({"keydata" : item.keydata, "offset" : item.offset});
         }, index * 1000);
       });
     };
+
 
     renderDelayKeyValue();
 
@@ -37,10 +55,6 @@ function Hashmap() {
       clearTimeout(timer);
     };
   };
-
-  useEffect(() => { 
-   
-  },[]);
 
   return (
     <div>
@@ -55,7 +69,7 @@ function Hashmap() {
         KeyValuepair
             </th></tr>
             {delayKeyValueState.map((Item, Index) => (
-          <KeyValue offset={Item.offset} keydata={Item.keydata} value={Item.value}/>
+          <KeyValue offset={Item.offset} keydata={Item.keydata} value={Item.value} isDataTable={true}/>
         ))}
 </table>
 
@@ -74,8 +88,8 @@ function Hashmap() {
       <th className="headertdkvp">
     Offset
         </th></tr>
-    {delayKeyValueState.map((Item) => (
-          <KeyValue offset={Item.offset} keydata={Item.keydata} value={Item.value}/>
+    {hashIndexState.map((Item) => (
+          <KeyValue offset={Item.offset} keydata={Item.keydata} value="dummy" isDataTable={false}/>
         ))}
     </table>
       )}
