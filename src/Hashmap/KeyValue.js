@@ -1,5 +1,6 @@
 import React, { useState} from "react";
 import './KeyValue.css'
+import '../Animation/CSSAnimation/CSSAnimation.css'
 
 function KeyValue({offset, keydata, value}) {
     const [score, setScore] = useState(0);
@@ -11,14 +12,13 @@ function KeyValue({offset, keydata, value}) {
     }
   
     return (
-        <table className="keyvaluediv">
           <tr className="keyvaluetr">
           <td className="keyvaluetdoffeset">
         {offset}
             </td>
           <td className="keyvaluetdkvp">
         {keydata}:{value}
-            </td></tr></table>
+            </td></tr>
     );
   }
 

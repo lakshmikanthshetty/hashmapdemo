@@ -8,20 +8,39 @@ import HashMapHeader from '../HashMapHeader/HashMapHeader.js';
 import { useEffect, useState } from 'react';
 import './KeyValue.css'
 import keyvaluedata from '../Data/KeyValuePair.json'
+import '../Animation/CSSAnimation/CSSAnimation.css'
 
 function Hashmap() {
 
   const [KeyValuesState, setKeyValues] = useState([])
-
-  const [Items, setItems] = useState([]);
+  const [delayKeyValueState, setDelayKeyValue] = useState([])
+  
+  const [showItems, setShowItems] = useState(false);
 
   const AddKeyValuePair = () => {
-    console.log(Items);
-    console.log(KeyValuesState);
-    setItems(prevItems => [...prevItems, prevItems.length + 1]);
+    setShowItems(true);
+
+    setKeyValues(keyvaluedata);
+    let timer;
+
+    const renderDelayKeyValue = () => {
+      keyvaluedata.forEach((item, index) => {
+        timer = setTimeout(() => {
+          setDelayKeyValue((prevItems) => [...prevItems, item]);
+        }, index * 1000);
+      });
+    };
+
+    renderDelayKeyValue();
+
+    return () => {
+      clearTimeout(timer);
+    };
   };
 
-  useEffect(() => { setKeyValues(keyvaluedata) }, []);
+  useEffect(() => { 
+   
+  },[]);
 
   return (
     <div>
@@ -29,35 +48,38 @@ function Hashmap() {
     <div class="keyvaluepairdiv">
     <table className="keyvaluediv">
           <tr className="keyvaluetr">
-          <td className="headertdoffset">
+          <th className="headertdoffset">
         Offset
-            </td>
-          <td className="headertdkvp">
+            </th>
+          <th className="headertdkvp">
         KeyValuepair
-            </td></tr>
-</table>
-{KeyValuesState.map((Item, Index) => (
+            </th></tr>
+            {delayKeyValueState.map((Item, Index) => (
           <KeyValue offset={Item.offset} keydata={Item.keydata} value={Item.value}/>
         ))}
+</table>
+
     
     
     </div>
 
     <div class="offsetkeypairdiv">
-    <table className="keyvaluediv">
-          <tr className="keyvaluetr">
-          <td className="headertdoffset">
-        Key
-            </td>
-          <td className="headertdkvp">
-        Offset
-            </td></tr>
-</table>
-    {KeyValuesState.map((Item) => (
+
+            {showItems && (
+      <table className="keyvaluediv">
+      <tr className="keyvaluetr">
+      <th className="headertdoffset">
+    Key
+        </th>
+      <th className="headertdkvp">
+    Offset
+        </th></tr>
+    {delayKeyValueState.map((Item) => (
           <KeyValue offset={Item.offset} keydata={Item.keydata} value={Item.value}/>
         ))}
-    
-    
+    </table>
+      )}
+
     </div>
     </div>
   );

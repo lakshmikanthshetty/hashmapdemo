@@ -1,21 +1,21 @@
 [
     {
-        "offset": "os1->",
+        "offset": "1",
         "keydata":"key1",
         "value":"v789"
     },
     {
-        "offset": "os2->",
+        "offset": "2",
         "keydata":"key2",
         "value":"v3874"
     },
     {
-        "offset": "os3->",
+        "offset": "3",
         "keydata":"key3",
         "value":"v9076"
     },
     {
-        "offset": "os4->",
+        "offset": "4",
         "keydata":"key4",
         "value":"v7897"
     }

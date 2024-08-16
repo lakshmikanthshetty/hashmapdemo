@@ -10,6 +10,8 @@ import NestedDiv from './nesteddiv/nesteddiv';
 import DynaumicComponentContainer from './DynamicComponent/DynamicComponent';
 import ParentComponent from './ParentComponent/ParentComponent';
 import JsonRenderComp from './JSONComponentRender/JsonRenderComp';
+import CSSAnimation from './Animation/CSSAnimation/CSSAnimation';
+import DelayedMap from './Animation/DelayedMap/DelayedMap';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
