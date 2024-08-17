@@ -7,10 +7,10 @@ import '../Animation/CSSAnimation/CSSAnimation.css'
 import './Hashmap.css'
 
 function Hashmap() {
-
   const [delayKeyValueState, setDelayKeyValue] = useState([])
   const [hashIndexState, updateHashIndex] = useState([])
   const [showItems, setShowItems] = useState(false);
+  const [latestOffsetState, setLatestOffsetState] = useState(5000);
 
   const dataStateRender = (keyvaluedataindex) => {
     setShowItems(true);
@@ -29,11 +29,14 @@ function Hashmap() {
       return onlyInArray1.concat(onlyInArray2).concat(inBothArray);
     }
 
-
     const renderDelayKeyValue = () => {
+      var currentOffset = latestOffsetState;
     let indexUpdateList = [];
       keyvaluedataindex.forEach((item, index) => {
         timer = setTimeout(() => {
+          currentOffset = currentOffset + 1;
+          setLatestOffsetState(currentOffset);
+          item.offset = currentOffset;
           setDelayKeyValue((prevItems) => [...prevItems, item]);
           indexUpdateList = [...indexUpdateList, {"keydata" : item.keydata, "offset" : item.offset}];
           var arrayDiffs = compareModelDataonFields(hashIndexState, indexUpdateList, "keydata");
