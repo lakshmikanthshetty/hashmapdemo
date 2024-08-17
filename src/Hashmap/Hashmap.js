@@ -15,7 +15,6 @@ function Hashmap() {
 
   const [delayKeyValueState, setDelayKeyValue] = useState([])
   const [hashIndexState, updateHashIndex] = useState([])
-  
   const [showItems, setShowItems] = useState(false);
 
   const dataStateRender = (keyvaluedataindex) => {
@@ -23,28 +22,31 @@ function Hashmap() {
 
     let timer;
 
-    const hashIndexUpdate = (item) => {
+    function compareModelDataonFields(modelArray1, modelArray2, key)
+    {
+      const set1 = new Set(modelArray1.map(item => item[key]));
+      const set2 = new Set(modelArray2.map(item => item[key]));
 
-      console.log(hashIndexState);
-      if(hashIndexState.length == 0)
-      {
-        updateHashIndex((prevIndex) => [...prevIndex, item])
-      }
-      else
-      {
-        updateHashIndex(hashIndexState.map(indexItem => 
-          indexItem.keydata === item.keydata?{...indexItem,...item}:indexItem
-        ));
-      }
-    };
+      const onlyInArray1 = modelArray1.filter(item => !set2.has(item[key]));
+      const onlyInArray2 = modelArray2.filter(item => !set1.has(item[key]));
+      const inBothArray = modelArray2.filter(item => set1.has(item[key]));
+
+      return onlyInArray1.concat(onlyInArray2).concat(inBothArray);
+    }
+
 
     const renderDelayKeyValue = () => {
+    let indexUpdateList = [];
       keyvaluedataindex.forEach((item, index) => {
         timer = setTimeout(() => {
           setDelayKeyValue((prevItems) => [...prevItems, item]);
-          hashIndexUpdate({"keydata" : item.keydata, "offset" : item.offset});
+          indexUpdateList = [...indexUpdateList, {"keydata" : item.keydata, "offset" : item.offset}];
+          var arrayDiffs = compareModelDataonFields(hashIndexState, indexUpdateList, "keydata");
+          updateHashIndex(arrayDiffs);
+
         }, index * 1000);
       });
+
     };
 
 
