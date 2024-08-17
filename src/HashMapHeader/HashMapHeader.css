@@ -1,7 +1,7 @@
 .HashMapHeader
 {
     background-color: #0f44a1;
-    min-height: 10vh;
+    min-height: 5vh;
     min-width: 99%;
     width: 100%;
     display: flex;
@@ -21,5 +21,5 @@
 
 .menuItemAddButton
 {
-    width: 70px;
+    width: 150px;
 }

@@ -2,7 +2,6 @@ import logo from '../logo.svg';
 import '../App.css';
 import '../CenteredComponent.css';
 import KeyValue from './KeyValue.js'
-import '../nesteddiv/nesteddiv.css'
 import Header from '../reactUIV1/Header.js';
 import HashMapHeader from '../HashMapHeader/HashMapHeader.js';
 import { useEffect, useState } from 'react';
@@ -81,14 +80,9 @@ function Hashmap() {
           <KeyValue offset={Item.offset} keydata={Item.keydata} value={Item.value} isDataTable={true}/>
         ))}
 </table>
-
-    
     
     </div>
-
     <div class="offsetkeypairdiv">
-
-            {showItems && (
       <table className="keyvaluediv">
       <tr className="keyvaluetr">
       <th className="headertdoffset">
@@ -101,8 +95,6 @@ function Hashmap() {
           <KeyValue offset={Item.offset} keydata={Item.keydata} value="dummy" isDataTable={false}/>
         ))}
     </table>
-      )}
-
     </div>
     </div>
   );
