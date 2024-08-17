@@ -1,14 +1,10 @@
-import logo from '../logo.svg';
-import '../App.css';
-import '../CenteredComponent.css';
 import KeyValue from './KeyValue.js'
-import Header from '../reactUIV1/Header.js';
 import HashMapHeader from '../HashMapHeader/HashMapHeader.js';
-import { useEffect, useState } from 'react';
-import './KeyValue.css'
+import { useState } from 'react';
 import keyvaluedata from '../Data/KeyValuePair.json'
 import keyvaluedataV1 from '../Data/KeyValuePairV1.json'
 import '../Animation/CSSAnimation/CSSAnimation.css'
+import './Hashmap.css'
 
 function Hashmap() {
 

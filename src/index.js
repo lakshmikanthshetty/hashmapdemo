@@ -1,11 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import Hashmap from './Hashmap/Hashmap';
 import reportWebVitals from './reportWebVitals';
 import MFRA from './MFRA'
 import ComponentReplica from './ComponentReplica/ComponentReplica'
-import NestedDiv from './nesteddiv/nesteddiv';
 //import ParentComponent from './LiftingStateUp/ParentComponent'
 import DynaumicComponentContainer from './DynamicComponent/DynamicComponent';
 import ParentComponent from './ParentComponent/ParentComponent';
