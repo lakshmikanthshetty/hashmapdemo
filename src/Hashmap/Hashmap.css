@@ -31,18 +31,8 @@
   .offsetkeypairdiv {
     background-color: #0f44a1;
     min-height: 24vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: large;
-    position: absolute;
-    top: 26%;
-    left: 2%;
-    margin-top: calc((0.5*30vh)*-1);   /* Half of the height */
     border: 1pt solid rgb(192, 184, 184);
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-    width: 17%;
     animation: slideIn;
   }
   

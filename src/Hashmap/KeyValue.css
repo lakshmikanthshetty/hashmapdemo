@@ -9,23 +9,17 @@
 
   .keyvaluediv{
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 3px;
     animation: slideIn;
   }
 
   .keyvaluetdoffeset{
     background-color: #eff1f4;
     text-align: left;
-    width: 100px;
   }
 
   .keyvaluetdkvp{
     background-color: #eff1f4;
     text-align: left;
-    width: 500px;
   }
 
 
@@ -45,7 +39,6 @@
   .headertdkvp{
     background-color: #0467fc;
     text-align: left;
-    width: 500px;
     color: #eff1f4;
   }
 
@@ -60,7 +53,9 @@ table {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
-  animation: slideIn 1s ease-out;;
+  animation: slideIn 1s ease-out;
+  width: 25%;
+  vertical-align: top;
 }
 
 .fade-in {

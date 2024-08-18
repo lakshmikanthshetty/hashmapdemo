@@ -37,6 +37,7 @@ function Hashmap() {
           currentOffset = currentOffset + 1;
           setLatestOffsetState(currentOffset);
           item.offset = currentOffset;
+          item.value = Math.random();
           setDelayKeyValue((prevItems) => [...prevItems, item]);
           indexUpdateList = [...indexUpdateList, {"keydata" : item.keydata, "offset" : item.offset}];
           var arrayDiffs = compareModelDataonFields(hashIndexState, indexUpdateList, "keydata");
@@ -64,9 +65,28 @@ function Hashmap() {
   };
 
   return (
-    <div>
-      <HashMapHeader AddKeyValuePair={AddKeyValuePair} UpdateKeyValuePair={UpdateKeyValuePair}/>
-    <div class="keyvaluepairdiv">
+    <table>
+      <tr>
+        <td colSpan='4'><HashMapHeader AddKeyValuePair={AddKeyValuePair} UpdateKeyValuePair={UpdateKeyValuePair}/></td>
+      </tr>
+      <tr>
+        <td>    <div class="offsetkeypairdiv">
+      <table className="keyvaluediv">
+      <tr className="keyvaluetr">
+      <th className="headertdoffset">
+    Key
+        </th>
+      <th className="headertdkvp">
+    Offset
+        </th></tr>
+    {hashIndexState.map((Item) => (
+          <KeyValue offset={Item.offset} keydata={Item.keydata} value="dummy" isDataTable={false}/>
+        ))}
+    </table>
+    </div></td>
+        <td></td>
+        <td></td>
+        <td>    <div class="offsetkeypairdiv">
     <table className="keyvaluediv">
           <tr className="keyvaluetr">
           <th className="headertdoffset">
@@ -80,22 +100,9 @@ function Hashmap() {
         ))}
 </table>
     
-    </div>
-    <div class="offsetkeypairdiv">
-      <table className="keyvaluediv">
-      <tr className="keyvaluetr">
-      <th className="headertdoffset">
-    Key
-        </th>
-      <th className="headertdkvp">
-    Offset
-        </th></tr>
-    {hashIndexState.map((Item) => (
-          <KeyValue offset={Item.offset} keydata={Item.keydata} value="dummy" isDataTable={false}/>
-        ))}
+    </div></td>
+      </tr>
     </table>
-    </div>
-    </div>
   );
 }
 
