@@ -67,10 +67,13 @@ function Hashmap() {
   return (
     <table>
       <tr>
+        <td className='menutd'></td>
+        <td className='bodytd'><table>
+      <tr>
         <td colSpan='4'><HashMapHeader AddKeyValuePair={AddKeyValuePair} UpdateKeyValuePair={UpdateKeyValuePair}/></td>
       </tr>
       <tr>
-        <td>    <div class="offsetkeypairdiv">
+        <td>   Hash Index - In Memory <div class="offsetkeypairdiv">
       <table className="keyvaluediv">
       <tr className="keyvaluetr">
       <th className="headertdoffset">
@@ -84,9 +87,8 @@ function Hashmap() {
         ))}
     </table>
     </div></td>
-        <td></td>
-        <td></td>
-        <td>    <div class="offsetkeypairdiv">
+
+        <td><div>  Key Value Pair Data  <div class="offsetkeypairdiv">
     <table className="keyvaluediv">
           <tr className="keyvaluetr">
           <th className="headertdoffset">
@@ -100,9 +102,14 @@ function Hashmap() {
         ))}
 </table>
     
-    </div></td>
+    </div></div></td>
+    <td></td>
+    <td></td>
+      </tr>
+    </table></td>
       </tr>
     </table>
+    
   );
 }
 

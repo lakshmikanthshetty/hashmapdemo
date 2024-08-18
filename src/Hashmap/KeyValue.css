@@ -42,6 +42,15 @@
     color: #eff1f4;
   }
 
+  .menutd{
+    width: 15%;
+  }
+
+  .bodytd{
+    width: 85%;
+  }
+
+
 
   /* App.css */
 table {
